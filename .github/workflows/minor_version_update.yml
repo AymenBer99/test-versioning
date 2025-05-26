@@ -20,17 +20,6 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-      - name: Validate commit types (must only be 'fix')
-        run: |
-          COMMITS=$(git log origin/${{ github.ref_name }}..HEAD --pretty=format:"%s")
-          echo "$COMMITS" | while read -r line; do
-            if ! echo "$line" | grep -Eq '^fix(\([^)]+\))?: '; then
-              echo "❌ Invalid commit for hotfix: $line"
-              echo "💡 Only 'fix' type commits are allowed in hotfix branches (conventional commits)."
-              exit 1
-            fi
-          done
-
       - name: Python Semantic Release
         id: release
         uses: python-semantic-release/python-semantic-release@v9.8.7
