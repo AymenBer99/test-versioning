@@ -24,8 +24,8 @@ jobs:
       - name: Semantic Release
         id: semantic_release
         uses: cycjimmy/semantic-release-action@v4
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create branch for new version
         if: steps.semantic_release.outputs.new_release_published == 'true'
