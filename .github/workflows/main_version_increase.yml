@@ -34,7 +34,7 @@ jobs:
       - name: Create branch for new version
         if: steps.semantic_release.outputs.released == 'true'
         run: |
-          NEW_VERSION=$(echo "${{ steps.semantic_release.outputs.version }}" | awk -F. '{print $1"."$2}')
+          NEW_VERSION=$(echo "${{ steps.semantic_release.outputs.version }}" | awk -F. '{print "stable/"$1"."$2}')
           git fetch origin
           git checkout -b "$NEW_VERSION" main
           git push origin "$NEW_VERSION"
