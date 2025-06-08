@@ -1,6 +1,6 @@
 [project]
 name = "test"
-version = "4.80.0"
+version = "0.5.0"
 description = "AI  API for building and managing tools and services"
 readme = "README.md"
 requires-python = ">=3.11"
