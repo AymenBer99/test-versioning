@@ -1,4 +1,30 @@
+[project]
+name = "test"
+version = "4.80.0"
+description = "AI  API for building and managing tools and services"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "flask",
+  "requests"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest",
+  "coverage",
+  "requests-mock"
+]
+dev = [
+  "black",
+  "isort",
+  "mypy",
+  "pytest",
+  "coverage"
+]
+
 [tool.semantic_release]
+version_toml = ["pyproject.toml:project.version"]
 commit_parser = "angular"
 tag_format = "{version}"
 
@@ -6,7 +32,7 @@ tag_format = "{version}"
 match = "main"
 
 [tool.semantic_release.branches.stable]
-match = "stable/.*"
+match = "release/.*"
 
 [tool.semantic_release.commit_parser_options]
 allowed_tags = ["build", "chore", "ci", "docs", "feat", "fix", "perf", "style", "refactor", "test"]

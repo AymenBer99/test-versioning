@@ -3,7 +3,7 @@ name: Hotfix - Patch Version Bump and Dockerize
 on:
   push:
     branches:
-      - 'stable/**'
+      - 'release/**'
 
 jobs:
   hotfix:
